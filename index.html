@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183e35">
+  <title>Clara — Acompanhamento de interessados</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#inicio" aria-label="Clara, início">clara<span aria-hidden="true">✳</span></a>
+    <p class="brand-caption">Cuidado em cada contato.</p>
+    <div class="nav-label">SEU ESPAÇO DE TRABALHO</div>
+    <a class="nav-item" href="#acompanhamentos"><span aria-hidden="true">◫</span> Acompanhamentos</a>
+    <div class="sidebar-note"><span class="small-label">UM PASSO DE CADA VEZ</span><p>Uma conversa hoje.<br>Um próximo passo claro.</p><span class="fine-print">Projeto acadêmico<br>Marca e cadastros fictícios</span></div>
+  </aside>
+  <main id="inicio">
+    <header class="topbar"><span>RECEPÇÃO &nbsp; / &nbsp; RELACIONAMENTO</span><time id="data-atual"></time></header>
+    <section class="intro">
+      <div><span class="eyebrow">ACOMPANHAMENTO DE INTERESSADOS</span><h1>Boas conversas<br>merecem continuidade.</h1><p>Organize os contatos e dê atenção ao próximo retorno.</p></div>
+      <button class="button primary" id="novo"><span aria-hidden="true">+</span> Novo interessado</button>
+    </section>
+    <section class="metrics" aria-label="Resumo dos acompanhamentos">
+      <div class="metric"><span>Em acompanhamento</span><strong id="total-ativos">—</strong><small>Conversas em andamento</small></div>
+      <div class="metric accent"><span>Retornos atrasados</span><strong id="total-atrasados">—</strong><small>Precisam da sua atenção</small></div>
+      <div class="metric"><span>Retornos de hoje</span><strong id="total-hoje">—</strong><small>Seu próximo passo</small></div>
+    </section>
+    <div id="status" class="notice" role="status" aria-live="polite" hidden></div>
+    <section id="acompanhamentos" class="workspace" aria-labelledby="lista-titulo">
+      <div class="section-heading"><div><span class="eyebrow">CADA CONTATO TEM UMA HISTÓRIA</span><h2 id="lista-titulo">Seus acompanhamentos <span id="contador"></span></h2></div><button class="button secondary" id="atualizar">Atualizar lista</button></div>
+      <div class="filters">
+        <label class="search">Buscar por nome ou serviço<input id="busca" type="search" placeholder="Quem você procura?" autocomplete="off"></label>
+        <label>Etapa<select id="filtro-etapa"><option value="">Todas as etapas</option value="novo">Novo interesse</option><option value="em_contato">Em contato</option><option value="avaliacao_marcada">Avaliação marcada</option><option value="convertido">Convertido</option><option value="encerrado">Encerrado</option></select></label>
+        <label>Próximo retorno<select id="filtro-retorno"><option value="">Todos os retornos</option><option value="atrasados">Atrasados</option><option value="hoje">Hoje</option><option value="proximos">Próximos dias</option></select></label>
+      </div>
+      <div id="lista" class="cards" aria-live="polite"></div>
+      <div id="vazio" class="empty" hidden><span aria-hidden="true">✳</span><h3 id="vazio-titulo">Vamos começar uma conversa?</h3><p id="vazio-texto">Adicione seu primeiro interessado para acompanhar os próximos passos.</p></div>
+    </section>
+    <footer>Clara · Acompanhamento com intenção <span>MVP acadêmico / 2026</span></footer>
+  </main>
+  <dialog id="editor" aria-labelledby="editor-titulo">
+    <form id="formulario">
+      <header class="dialog-header"><div><span class="eyebrow">UM PRÓXIMO PASSO CLARO</span><h2 id="editor-titulo">Novo interessado</h2></div><button class="icon-button" id="fechar" type="button" aria-label="Fechar formulário">×</button></header>
+      <p class="dialog-description">Registre o interesse e combine o próximo retorno.</p>
+      <div class="form-grid">
+        <label>Nome *<input name="nome" required minlength="2" maxlength="100" autocomplete="off"></label>
+        <label>Serviço de interesse *<input name="servico" required minlength="2" maxlength="80" list="servicos"><datalist id="servicos"><option value="Avaliação inicial"><option value="Programa de bem-estar"><option value="Acompanhamento"></datalist></label>
+        <label>Origem do contato *<select name="origem" required><option value="">Selecione</option><option>Instagram</option><option>Indicação</option><option>Busca online</option><option>Outro</option></select></label>
+        <label>Etapa *<select name="etapa" required><option value="novo">Novo interesse</option><option value="em_contato">Em contato</option><option value="avaliacao_marcada">Avaliação marcada</option><option value="convertido">Convertido</option><option value="encerrado">Encerrado</option></select></label>
+        <label class="full">Próximo retorno<input name="proximo_retorno" type="date" aria-describedby="retorno-ajuda"><small id="retorno-ajuda">Obrigatório enquanto o acompanhamento estiver ativo.</small></label>
+        <label class="full">Observação comercial<textarea name="observacao" maxlength="1000" rows="3" placeholder="Ex.: prefere receber retorno no período da tarde."></textarea></label>
+      </div>
+      <p id="registro-info" class="fine-print"></p>
+      <div id="erro-formulario" class="notice error" role="alert" hidden></div>
+      <div class="dialog-actions"><button class="button danger" type="button" id="excluir" hidden>Excluir cadastro</button><button class="button primary" type="submit" id="salvar">Salvar interessado</button></div>
+    </form>
+  </dialog>
+</body>
+</html>
