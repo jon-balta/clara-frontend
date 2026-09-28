@@ -8,8 +8,6 @@ SPA em HTML, CSS e JavaScript para uma recepção organizar interessados, acompa
 2. Abra **`index.html` diretamente no navegador**, com duplo clique ou arrastando o arquivo para uma janela do navegador.
 3. Opcionalmente execute a carga fictícia no backend para visualizar seis exemplos.
 
-Não precisa de Node, npm, servidor de frontend, Live Server, build ou alteração de segurança do navegador. HTML, CSS e JavaScript são locais, sem fontes ou imagens externas. Verificado no Google Chrome em Linux, com abertura por `file://`.
-
 A interface abre com a API desligada e informa a indisponibilidade. Os cadastros dependem da API; depois de ligá-la, clique em **Atualizar lista**. Não há armazenamento offline.
 
 Se mudar a porta da API, ajuste a constante `API` no começo de `app.js`. A configuração padrão é `http://127.0.0.1:5001`.
@@ -50,5 +48,3 @@ Cadastros ativos exigem próximo retorno; convertidos e encerrados não contam c
 - `index.html`: estrutura da página e formulário.
 - `styles.css`: identidade visual e layout responsivo.
 - `app.js`: integração HTTP, formulário, estados e filtros.
-
-Referência didática: aula 3 de Desenvolvimento Full Stack Básico. Interface e domínio próprios, com apoio de IA na construção. Não contém dados ou integrações de clientes reais. Repositórios: [API](https://github.com/jon-balta/clara-backend) · [Frontend](https://github.com/jon-balta/clara-frontend).
